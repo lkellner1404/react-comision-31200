@@ -1,0 +1,27 @@
+header {
+    background-color: #5f2b1c;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.search>input{
+    padding: 1.3em 2.5em;
+    margin: 0.5em;
+}
+.search>button{
+    padding: 1.3em 2.5em;
+    margin: 0.5em;
+    cursor: pointer;
+}
+ul.nav{
+    display: flex; 
+}
+li {
+    list-style-type: none;
+}
+li>button{
+    padding: 1.3em 2.5em;
+    margin: 0.5em;
+    cursor: pointer;
+}

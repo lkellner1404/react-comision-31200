@@ -1,0 +1,9 @@
+.cartwidget{
+    background-color: #A06655;
+    border: 4px solid #41170A;   
+    display: flex;
+    padding: 0.65em;
+}
+.cartwidget>img{
+    height: 100%;
+}

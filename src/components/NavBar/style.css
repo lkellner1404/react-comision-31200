@@ -4,6 +4,8 @@ header {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    /* border-block-end-color:#240800;
+    border-bottom-width: 4px; */
 }
 .search>input{
     padding: 1.3em 2.5em;

@@ -1,5 +1,8 @@
+
+import CartWidget from '../CartWidget/CartWidget'
 import logo from './logo.png'
-import './NavBar.css'
+import './style.css'
+
 
 export default function NavBar(){
     return (
@@ -15,7 +18,9 @@ export default function NavBar(){
                     <li><button>QUIENES SOMOS</button></li>
                     <li><button>CONTACTO</button></li>
                 </ul>
-            </nav>
+            </nav>            
+            <CartWidget />
         </header>
+
     )
 }

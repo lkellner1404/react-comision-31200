@@ -1,7 +1,7 @@
 import { useState } from "react"
 import './style.css'
 
-export default function ItemCount( {stock, initial, onAdd} ) {
+export default function ItemCount( {stock, initial} ) {
     const number = Number(initial)
     const [count, setcount] = useState(number)
     const agregar =()=>{
@@ -15,6 +15,15 @@ export default function ItemCount( {stock, initial, onAdd} ) {
         }
     }
 
+    const add =()=>{
+        if (count === 0){
+            console.log(`ERROR! Se trató de agregar ${count}!`)
+        } else {
+            console.log(`Se agregaron ${count} items al carrito`)
+            alert(`Se agregaran ${count} items al carrito`)
+        }
+    }
+
     return(
         <section className="item-count">
             <section className="contador">
@@ -22,7 +31,7 @@ export default function ItemCount( {stock, initial, onAdd} ) {
                 <span>{count}</span>
                 <button onClick={agregar}>+</button>
             </section>
-            <button>Agregar al Carrito</button>
+            <button onClick={add}>Agregar al Carrito</button>
         </section>
     )
 }

@@ -1,0 +1,14 @@
+.item-count{
+    background-color: #A06655;
+    padding: 0.5em;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+.contador{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    
+}

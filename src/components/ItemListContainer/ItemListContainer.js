@@ -1,11 +1,11 @@
-import ItemCount from '../ItemCount/ItemCount'
 import './style.css'
+import ItemList from '../ItemList/ItemList'
 
 export default function ItemListContainer( { saludo }) {
-    return(
+        return(
         <main className='item-container'>
             <h1>{saludo}</h1>
-            <ItemCount stock="20" initial="1" />
+            <ItemList />
         </main>
     )
 }

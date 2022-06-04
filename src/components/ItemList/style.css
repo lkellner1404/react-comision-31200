@@ -1,0 +1,10 @@
+.cardsProductos{
+
+    background-color: #A06655;
+    margin: 0 auto;
+    width: 85%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    column-gap: 1em;
+}

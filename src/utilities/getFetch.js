@@ -2,7 +2,7 @@
 let productos = [{
     id: '1',
     title: 'Chocolate amargo 70%',
-    description: 'Mas amargo que el primer mate',
+    description: '200gr. de chocolate al 70% cacao.',
     price: 500,
     foto: './assets/img/chocoamargo.png',
     altFoto: 'tableta chocolate amargo',
@@ -11,7 +11,7 @@ let productos = [{
 {
     id: '2',
     title: 'Chocolate con Leche',
-    description: 'Como le gusta a tu señora',
+    description: '200gr. de chocolate con leche, todo un clásico.',
     price: 500,
     foto: './assets/img/chococonleche.png',
     altFoto: 'tableta chocolate con leche',
@@ -20,7 +20,7 @@ let productos = [{
 {
     id: '3',
     title: 'Chocolate Blanco',
-    description: 'Mas Blanco que la casaca del Real Madrid',
+    description: '200gr. de puro chocolate blanco.',
     price: 500,
     foto: './assets/img/chocoblanco.png',
     altFoto: 'tableta chocolate blanco',

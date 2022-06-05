@@ -12,8 +12,8 @@ const Item = ({propiedad}) => {
             <Card.Body>
                 <Card.Title>{propiedad.title}</Card.Title>
                 <Card.Text>
-                    <span>{propiedad.description} </span>
-                    <span>Precio $ {propiedad.price}</span>
+                    <span className='desc'>{propiedad.description} </span>
+                    <span className='precio'>Precio $ {propiedad.price}</span>
                 </Card.Text>
                 <ItemCount  stock={propiedad.stock} initial="1" />
             </Card.Body>

@@ -1,7 +1,8 @@
 .cardsProductos{
-
     background-color: #A06655;
+    padding: 0.5em;
     margin: 0 auto;
+    border: 4px solid #41170A;
     width: 85%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);

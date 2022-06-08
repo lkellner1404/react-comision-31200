@@ -5,6 +5,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,6 +14,7 @@ root.render(
     <>
     <NavBar />
     <ItemListContainer saludo='Bienvenidos/as!' />
+    <ItemDetailContainer />
     {/* <App /> */}
     </>
   // </React.StrictMode>

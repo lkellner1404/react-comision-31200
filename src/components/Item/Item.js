@@ -4,7 +4,7 @@ import ItemCount from '../ItemCount/ItemCount'
 import './style.css'
 
 const Item = ({propiedad}) => {
-    console.log(propiedad.id)
+    // console.log(propiedad.id)
 
     return (
         <Card>

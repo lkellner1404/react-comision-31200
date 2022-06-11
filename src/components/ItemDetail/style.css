@@ -12,11 +12,11 @@
     grid-column: 1 / 3;
     grid-row: 1 / 5;
 }
-.itemDetail>h2, .itemDetail>p, .itemDetail>button{
+.itemDetail>h2, .itemDetail>p, .itemDetail>section{
     grid-column: 3 / 5;
     text-align: center;
 }
-.itemDetail>button{
+.itemDetail>section{
     margin: auto;
     padding: 1em 2.5em;
 }

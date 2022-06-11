@@ -10,7 +10,7 @@ export default function ItemCount( {stock, initial} ) {
         }
     }
     const quitar =()=>{
-        if (count > 0){
+        if (count > 1){
             setcount(count - 1)
         }
     }

@@ -1,4 +1,5 @@
 import React from 'react'
+import ItemCount from '../ItemCount/ItemCount'
 import './style.css'
 
 const ItemDetail = ({propiedad}) => {
@@ -8,7 +9,7 @@ const ItemDetail = ({propiedad}) => {
         <h2>{propiedad.title}</h2>
         <p>{propiedad.description}</p>
         <p>${propiedad.price}</p>
-        <button>COMPRAR</button>
+        <ItemCount stock={propiedad.stock} initial='1' />
     </div>
   )
 }

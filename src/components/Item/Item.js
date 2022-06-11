@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
-import ItemCount from '../ItemCount/ItemCount'
+import { Link } from 'react-router-dom'
+// import ItemCount from '../ItemCount/ItemCount'
 import './style.css'
 
 const Item = ({propiedad}) => {
@@ -15,7 +16,10 @@ const Item = ({propiedad}) => {
                     <span className='desc'>{propiedad.description} </span>
                     <span className='precio'>Precio $ {propiedad.price}</span>
                 </Card.Text>
-                <ItemCount  stock={propiedad.stock} initial="1" />
+                {/* <ItemCount  stock={propiedad.stock} initial="1" /> */}
+                <Link to={`/detalle/${propiedad.id}`} >
+                    <button>COMPRAR</button>
+                </Link>
             </Card.Body>
         </Card>
     )

@@ -2,21 +2,23 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import getFetch from '../../utilities/getFetch'
 import ItemDetail from '../ItemDetail/ItemDetail'
+import Spinner from '../Spinner/Spinner'
 import './style.css'
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState([])
+    const [loading, setLoading] = useState(true)
 
     const { id }=useParams()
     
     useEffect(() => {
-      getFetch(2000)
+      getFetch(200)
         .then((respuesta)=>{
-            // let indice = Math.floor(Math.random() * respuesta.length)
             let busqueda = respuesta.find( element => element.id === id)
             setItem(busqueda)
-            // console.log(busqueda)
-            // console.log(respuesta)
+        })
+        .finally(()=>{
+            setLoading(false)
         })
         
       
@@ -24,7 +26,15 @@ const ItemDetailContainer = () => {
     
     return (
         <div className='itemDetailContainer'>
-            <ItemDetail propiedad={item} />
+            { loading ? 
+                <>
+                    <h2>Cargando...</h2>
+                    <Spinner />
+                </>
+                : 
+                <ItemDetail propiedad={item} />
+            }
+
         </div>
     )
 }

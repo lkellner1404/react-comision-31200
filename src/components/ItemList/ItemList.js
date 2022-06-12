@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import getFetch from '../../utilities/getFetch'
 import Item from '../Item/Item'
+import Spinner from '../Spinner/Spinner';
 import './style.css'
 
 const ItemList = () => {
@@ -13,7 +13,7 @@ const ItemList = () => {
     useEffect(()=>{
 
         if (categoriaId) {
-            getFetch(2000)
+            getFetch(200)
             .then((respuesta)=>{
                 setProductos(respuesta.filter(elemento => elemento.categoria === categoriaId))
             })
@@ -33,6 +33,13 @@ const ItemList = () => {
                 setLoading(false)
             })
         }
+
+        return ()=>{
+            setProductos([])
+            setLoading(true)
+        }
+
+
     },[categoriaId])
 
     console.log(productos)
@@ -42,7 +49,7 @@ const ItemList = () => {
             { loading ? 
                 <>
                     <h2>Cargando...</h2>
-                    <Spinner animation="border" />
+                    <Spinner />
                 </>
             : 
                 productos.map((producto)=> 

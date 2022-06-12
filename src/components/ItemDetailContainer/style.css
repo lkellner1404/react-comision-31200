@@ -1,4 +1,15 @@
 .itemDetailContainer {
     background-color: #5f2b1c;
     padding: 1em;
+    border-top: 4px solid #41170A;    
+}
+
+h2 {
+    background-color: #A06655;
+    text-align: center;
+}
+
+.itemDetailContainer>.spinner{
+    padding: 0.5em;
+    margin: 0 auto;
 }

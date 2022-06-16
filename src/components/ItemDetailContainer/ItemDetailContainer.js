@@ -32,7 +32,7 @@ const ItemDetailContainer = () => {
                     <Spinner />
                 </>
                 : 
-                <ItemDetail propiedad={item} />
+                <ItemDetail producto={item} />
             }
 
         </div>

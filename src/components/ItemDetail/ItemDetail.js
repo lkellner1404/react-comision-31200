@@ -1,31 +1,34 @@
 import React, { useState } from 'react'
+import { useCartContext } from '../../context/cartContext'
+
 import GoToCart from '../GoToCart/GoToCart'
 import ItemCount from '../ItemCount/ItemCount'
+
 import './style.css'
 
 const ItemDetail = ({producto}) => {
   
   const [count, setCount] = useState(1)
   const [click, setClick] = useState(false)
+  const { agregarAlCarrito, cart } = useCartContext()
 
-  const agregar =()=>{
+  const agregar = () => {
     if (producto.stock > count){
       setCount(count + 1)
     }
   }
-  const quitar =()=>{
+  const quitar = () => {
     if (count > 1){
       setCount(count - 1)
     }
   }
-  const onAdd =()=>{
-    if (count === 0){
-      console.log(`ERROR! Se trató de agregar ${count}!`)
-    } else {
-      console.log(`Se agregaron ${count} items al carrito`)
-      setClick(true)
-    }
+  const onAdd = () => {
+    // console.log(`Se agregaron ${count} items al carrito`)
+    setClick(true)
+    agregarAlCarrito({ ...producto, cantidad: count })
   }
+  
+  console.log(cart)
 
   return (
   <div className='itemDetail'>

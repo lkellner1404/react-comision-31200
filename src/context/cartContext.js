@@ -8,8 +8,6 @@ export const CartContextProvider=( {children} )=>{
     
     const [cart, setCart] = useState([])
 
-    // const isInCart = (el) => cart.includes(el.id)
-
     const removeItem =(e)=>{
         const value = e.target.value
         const item = cart.findIndex( el => el.id === value)
@@ -18,8 +16,24 @@ export const CartContextProvider=( {children} )=>{
         console.log(cart)
     }
 
-    const agregarAlCarrito=(item)=>{
-        setCart([...cart, item])
+    
+
+    const agregarAlCarrito = (item) => {
+        const itemDuplicado = cart.find( (el) => el.id === item.id)
+        const isInCart = cart.includes(itemDuplicado)
+        console.log(isInCart)
+
+        if (isInCart){
+            const indice = cart.findIndex( el => el.id === item.id)
+            // console.log(indice)
+           const sumaCant = cart[indice].cantidad + item.cantidad
+           cart[indice].cantidad = sumaCant
+           console.log(sumaCant)
+        //    setCart([...cart, item])
+        } else {
+            setCart([...cart, item])
+        }
+
     }
 
     const clearCart =()=>{

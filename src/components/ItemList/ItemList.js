@@ -29,7 +29,7 @@ const ItemList = () => {
             })
             .catch(error => console.log(error))
             .finally(()=>{
-                console.log("productos cargados")
+                // console.log("productos cargados")
                 setLoading(false)
             })
         }
@@ -42,7 +42,7 @@ const ItemList = () => {
 
     },[categoriaId])
 
-    console.log(productos)
+    // console.log(productos)
 
     return (
         <div className='cardsProductos'>

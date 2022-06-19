@@ -1,18 +1,28 @@
 import React from 'react'
 import { useCartContext } from '../../context/cartContext'
-// import img from './img.png'
+// import CartItem from '../CartItem/CartItem'
 
  export default function Carrito(){
-    const {cart} = useCartContext()
+    const { cart, clearCart, removeItem } = useCartContext()
+    console.log(cart)
+
     
-  return (
-        <>
-            <h2>SITIO EN CONSTRUCCION</h2>
-            {/* <img src={img} /> */}
+    
+    return (
+        <section className='carrito'>
+            <h2>Carrito de Compras</h2>
             <ul>
-                {cart.map( item => <li key={item.id}>{item.title} - cantidad {item.cantidad} - precio ${item.price} - TOTAL ${item.cantidad * item.price}</li>)}
+                {
+
+                cart.map( item => <li key={item.id}>{item.title} - cantidad {item.cantidad} - precio ${item.price} - TOTAL ${item.cantidad * item.price} - <button className='removeItem' onClick={removeItem} value={item.id}>Quitar Item</button></li>)
+                
+                }
+                {/* {cart.map( item => <CartItem item={item} key={item.id}/>)} */}
             </ul>
-        </>
+
+            {/* <p>TOTAL $ {cart.reduce( (acum, item) => acum + item.total )}</p> */}
+            <button onClick={clearCart}>Vaciar Carrito</button>
+        </section>
     )
 }
 

@@ -8,15 +8,33 @@ export const CartContextProvider=( {children} )=>{
     
     const [cart, setCart] = useState([])
 
+    // const isInCart = (el) => cart.includes(el.id)
+
+    const removeItem =(e)=>{
+        const value = e.target.value
+        const item = cart.findIndex( el => el.id === value)
+        cart.splice(item,1)
+        setCart([...cart])
+        console.log(cart)
+    }
+
     const agregarAlCarrito=(item)=>{
         setCart([...cart, item])
     }
+
+    const clearCart =()=>{
+        setCart([])
+    }
+    
+    
 
     return (
         <CartContext.Provider 
         value={{
             cart,
-            agregarAlCarrito
+            agregarAlCarrito,
+            clearCart,
+            removeItem
         }}
         >
             {children}

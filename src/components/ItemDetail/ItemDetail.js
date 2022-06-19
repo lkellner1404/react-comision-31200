@@ -10,7 +10,7 @@ const ItemDetail = ({producto}) => {
   
   const [count, setCount] = useState(1)
   const [click, setClick] = useState(false)
-  const { agregarAlCarrito, cart } = useCartContext()
+  const { cart, agregarAlCarrito } = useCartContext()
 
   const agregar = () => {
     if (producto.stock > count){
@@ -28,7 +28,7 @@ const ItemDetail = ({producto}) => {
     agregarAlCarrito({ ...producto, cantidad: count })
   }
   
-  console.log(cart)
+  // console.log(cart)
 
   return (
   <div className='itemDetail'>

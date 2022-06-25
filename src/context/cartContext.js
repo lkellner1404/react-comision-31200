@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
 const CartContext = createContext([])
 
@@ -7,6 +7,8 @@ export const useCartContext = () => useContext(CartContext)
 export const CartContextProvider=( {children} )=>{
     
     const [cart, setCart] = useState([])
+    const [cant, setCant] = useState()
+    const [total, setTotal] = useState()
 
     const removeItem =(e)=>{
         const value = e.target.value
@@ -16,7 +18,14 @@ export const CartContextProvider=( {children} )=>{
         console.log(cart)
     }
 
-    
+    const sumarCant =()=>{
+        const aversifunca = cart.reduce( (acum,el) => acum + el.cantidad, 0)
+        setCant(aversifunca)
+    }
+    const sumarTotal =()=>{
+        const aversifunca = cart.reduce( (acum,el) => acum + (el.cantidad * el.price), 0)
+        setTotal(aversifunca)
+    }
 
     const agregarAlCarrito = (item) => {
         const itemDuplicado = cart.find( (el) => el.id === item.id)
@@ -36,6 +45,11 @@ export const CartContextProvider=( {children} )=>{
 
     }
 
+    useEffect(()=>{
+        sumarCant()
+        sumarTotal()
+    },[cart])
+
     const clearCart =()=>{
         setCart([])
     }
@@ -46,6 +60,8 @@ export const CartContextProvider=( {children} )=>{
         <CartContext.Provider 
         value={{
             cart,
+            cant,
+            total,
             agregarAlCarrito,
             clearCart,
             removeItem

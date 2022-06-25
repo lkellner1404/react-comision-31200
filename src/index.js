@@ -3,9 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { getFirestoreApp } from './firebase/config';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+getFirestoreApp()
+
 root.render(
   // <React.StrictMode>
       <App /> 

@@ -42,7 +42,8 @@ export const CartContextProvider=( {children} )=>{
         } else {
             setCart([...cart, item])
         }
-
+        sumarCant()
+        sumarTotal()
     }
 
     useEffect(()=>{
@@ -53,8 +54,6 @@ export const CartContextProvider=( {children} )=>{
     const clearCart =()=>{
         setCart([])
     }
-    
-    
 
     return (
         <CartContext.Provider 

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../../context/cartContext'
+import ClientForm from '../ClientForm/ClientForm'
 // import CartItem from '../CartItem/CartItem'
 
  export default function Carrito(){
@@ -84,7 +85,7 @@ import { useCartContext } from '../../context/cartContext'
             <div className='carrito--total'>
                 <h3>TOTAL $ {total}</h3>
             </div>
-            <form onSubmit={comprar}>
+            {/* <form onSubmit={comprar}>
                 <fieldset>
                     <legend>Indique sus datos</legend>
                     <input 
@@ -107,7 +108,8 @@ import { useCartContext } from '../../context/cartContext'
                     />
                     <input type='submit'/>
                 </fieldset>
-            </form>
+            </form> */}
+            <ClientForm comprar={comprar} handleInputChange={handleInputChange} />
         </section>
     )
 }

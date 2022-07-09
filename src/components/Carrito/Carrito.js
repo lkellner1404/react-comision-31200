@@ -3,23 +3,21 @@ import { addDoc, collection, getFirestore } from 'firebase/firestore'
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../../context/cartContext'
 import ClientForm from '../ClientForm/ClientForm'
-// import CartItem from '../CartItem/CartItem'
 
  export default function Carrito(){
     const { cart, total, clearCart, removeItem } = useCartContext()
-    const [ ordenId, setOrdenId ] = useState('')
+    const [ orderId, setOrderId ] = useState('')
     const [ client, setClient ] = useState({
         name: '',
         email: '',
         phone: ''
     })
-    // console.log(cart)
 
-    if (ordenId){
+    if (orderId){
         return(
             <section className='carrito'>
                 <h2>Carrito de Compras</h2>
-                <p>Su orden se generó con el ID: {ordenId}</p>
+                <p>Su orden se generó con el ID: {orderId}</p>
                 <p>Muchas gracias por elegirnos!</p>
             </section>
         )
@@ -34,7 +32,7 @@ import ClientForm from '../ClientForm/ClientForm'
         )
     }
 
-    const comprar = (e) =>{
+    const buy = (e) =>{
         e.preventDefault()
         const items = cart.map((items)=>{
             const id = items.id
@@ -44,20 +42,19 @@ import ClientForm from '../ClientForm/ClientForm'
             const totalProd = price * cantidad
             return {id:id, title:title, price:price, cantidad:cantidad, total: totalProd}
         })
-        const orden =
+        const order =
             {
-                buyer: client/* {name:'AAAAA',phone:'111111',email:'aaaa@aaaa'} */,
+                buyer: client,
                 items: items,
                 total: total,
                 date: new Date()
             }
-        // console.log(orden)
         const db = getFirestore()
-        const ordenes = collection(db,'orders')
-        addDoc(ordenes, orden)
-            .then(( { id } ) => setOrdenId(id))
+        const orderCollection = collection(db,'orders')
+        addDoc(orderCollection, order)
+            .then(( { id } ) => setOrderId(id))
             .finally(()=>clearCart())
-        console.log(ordenId)
+        console.log(orderId)
     }
     
     const handleInputChange = (e) => {
@@ -80,36 +77,12 @@ import ClientForm from '../ClientForm/ClientForm'
                     }
                 </ul>
                 <button onClick={clearCart}>Vaciar Carrito</button>
-                {/* <button onClick={comprar}>COMPRAR</button> */}
             </div>
             <div className='carrito--total'>
                 <h3>TOTAL $ {total}</h3>
             </div>
-            {/* <form onSubmit={comprar}>
-                <fieldset>
-                    <legend>Indique sus datos</legend>
-                    <input 
-                    type='text'
-                    placeholder='Nombre completo'
-                    name='name'
-                    onChange={handleInputChange}
-                    />
-                    <input 
-                    type='email'
-                    placeholder='Email'
-                    name='email'
-                    onChange={handleInputChange}
-                    />
-                    <input 
-                    type='tel'
-                    placeholder='Telefono de contacto'
-                    name='phone'
-                    onChange={handleInputChange}
-                    />
-                    <input type='submit'/>
-                </fieldset>
-            </form> */}
-            <ClientForm comprar={comprar} handleInputChange={handleInputChange} />
+            
+            <ClientForm buy={buy} handleInputChange={handleInputChange} />
         </section>
     )
 }

@@ -3,8 +3,7 @@ import ItemList from '../ItemList/ItemList'
 
 export default function ItemListContainer( { saludo }) {
 
-    
-        return(
+    return(
         <main className='item-container'>
             <h1>{saludo}</h1>
             <ItemList />

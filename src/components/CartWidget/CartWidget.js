@@ -1,14 +1,12 @@
-
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../../context/cartContext'
 import img from './shopping-cart.png'
 import './style.css'
 
 export default function CartWidget() {
+    const { quantity } = useCartContext()
 
-    const { cant } = useCartContext()
-
-    if (cant === 0){
+    if (quantity === 0){
         return(
             <section className='cartwidget'>
             <Link to='/cart'>
@@ -23,7 +21,7 @@ export default function CartWidget() {
             <Link to='/cart'>
                 <img src={img} alt="cart"/>
                 <section className='cantidad'>
-                    <span className='cuenta'>{cant}</span>
+                    <span className='cuenta'>{quantity}</span>
                 </section>
             </Link>
         </section>

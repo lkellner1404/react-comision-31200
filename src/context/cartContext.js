@@ -4,51 +4,44 @@ const CartContext = createContext([])
 
 export const useCartContext = () => useContext(CartContext)
 
-export const CartContextProvider=( {children} )=>{
+export const CartContextProvider=( { children } )=>{
     
-    const [cart, setCart] = useState([])
-    const [cant, setCant] = useState()
-    const [total, setTotal] = useState()
+    const [ cart, setCart ] = useState([])
+    const [ quantity, setQuantity ] = useState()
+    const [ total, setTotal ] = useState()
 
     const removeItem =(e)=>{
         const value = e.target.value
         const item = cart.findIndex( el => el.id === value)
         cart.splice(item,1)
-        setCart([...cart])
-        console.log(cart)
+        setCart( [ ...cart ] )
     }
 
-    const sumarCant =()=>{
-        const aversifunca = cart.reduce( (acum,el) => acum + el.cantidad, 0)
-        setCant(aversifunca)
+    const addQuantity =()=>{
+        setQuantity( cart.reduce( (acum,el) => acum + el.cantidad, 0 ) )
     }
-    const sumarTotal =()=>{
-        const aversifunca = cart.reduce( (acum,el) => acum + (el.cantidad * el.price), 0)
-        setTotal(aversifunca)
+    const addTotal =()=>{
+        setTotal( cart.reduce( (acum,el) => acum + (el.cantidad * el.price), 0 ) )
     }
 
-    const agregarAlCarrito = (item) => {
+    const addToCart = (item) => {
         const itemDuplicado = cart.find( (el) => el.id === item.id)
         const isInCart = cart.includes(itemDuplicado)
-        console.log(isInCart)
 
         if (isInCart){
-            const indice = cart.findIndex( el => el.id === item.id)
-            // console.log(indice)
-           const sumaCant = cart[indice].cantidad + item.cantidad
-           cart[indice].cantidad = sumaCant
-           console.log(sumaCant)
-        //    setCart([...cart, item])
+            const index = cart.findIndex( el => el.id === item.id)
+            const addQuantity = cart[index].cantidad + item.cantidad
+            cart[index].cantidad = addQuantity
         } else {
             setCart([...cart, item])
         }
-        sumarCant()
-        sumarTotal()
+        addQuantity()
+        addTotal()
     }
 
     useEffect(()=>{
-        sumarCant()
-        sumarTotal()
+        addQuantity()
+        addTotal()
     },[cart])
 
     const clearCart =()=>{
@@ -59,9 +52,9 @@ export const CartContextProvider=( {children} )=>{
         <CartContext.Provider 
         value={{
             cart,
-            cant,
+            quantity,
             total,
-            agregarAlCarrito,
+            addToCart,
             clearCart,
             removeItem
         }}

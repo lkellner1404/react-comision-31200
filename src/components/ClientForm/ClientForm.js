@@ -1,8 +1,8 @@
 import React from 'react'
 
-const ClientForm = ({ comprar, handleInputChange}) => {
+const ClientForm = ({ buy, handleInputChange}) => {
     return (
-        <form onSubmit={comprar}>
+        <form onSubmit={buy}>
                 <fieldset>
                     <legend>Indique sus datos</legend>
                     <input 

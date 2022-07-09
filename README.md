@@ -26,7 +26,7 @@ Instalar proyecto con npm
     
 ## Demo
 
-Insert gif or link to demo
+[DEMO](https://auchocolat.netlify.app/)
 
 
 ## Roadmap

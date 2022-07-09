@@ -54,7 +54,6 @@ import ClientForm from '../ClientForm/ClientForm'
         addDoc(orderCollection, order)
             .then(( { id } ) => setOrderId(id))
             .finally(()=>clearCart())
-        console.log(orderId)
     }
     
     const handleInputChange = (e) => {

@@ -31,8 +31,9 @@ Instalar proyecto con npm
 
 ## Roadmap
 
+- [ ] Mejorar estilos. [^1]
 - [ ] Agregar funcionalidad de resta de stock al momento de comprar.
 - [ ] Agregar funcionalidad donde no permita comprar si no hay stock.
-- [x] Mejorar estilos
+- [x] ~~Validaciones del formulario en el carrito~~
 
-
+[^1] Siempre hace falta mejorar los estilos, no importa cuando lean esto.

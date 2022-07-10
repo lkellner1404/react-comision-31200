@@ -43,6 +43,9 @@ const ClientForm = ({ buy, handleInputChange, setConfirmation, confirmation }) =
                 placeholder='Telefono de contacto'
                 name='phone'
                 required 
+                pattern='[0]{1}[0-9]{10}'
+                maxLength='11'
+                title='0XXXXXXXXXX'
                 onChange={handleInputChange}
                 />
                 <input type='submit'/>

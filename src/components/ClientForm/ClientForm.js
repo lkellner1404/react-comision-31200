@@ -1,31 +1,53 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import './style.css'
 
-const ClientForm = ({ buy, handleInputChange}) => {
+const ClientForm = ({ buy, handleInputChange, setConfirmation, confirmation }) => {
+
+    useEffect(() => {
+        setConfirmation(document.getElementById('email').value===document.getElementById('confEmail').value)
+    }, [handleInputChange])
+    
+
     return (
-        <form onSubmit={buy}>
-                <fieldset>
-                    <legend>Indique sus datos</legend>
-                    <input 
-                    type='text'
-                    placeholder='Nombre completo'
-                    name='name'
-                    onChange={handleInputChange}
-                    />
-                    <input 
-                    type='email'
-                    placeholder='Email'
-                    name='email'
-                    onChange={handleInputChange}
-                    />
-                    <input 
-                    type='tel'
-                    placeholder='Telefono de contacto'
-                    name='phone'
-                    onChange={handleInputChange}
-                    />
-                    <input type='submit'/>
-                </fieldset>
-            </form>
+        <form onSubmit={buy} className='cart-form' >
+            <fieldset>
+                <legend>Indique sus datos</legend>
+                <input 
+                type='text'
+                placeholder='Nombre completo'
+                name='name'
+                required 
+                onChange={handleInputChange}
+                />
+                <input 
+                type='email'
+                placeholder='Email'
+                name='email'
+                id='email'
+                required 
+                onChange={handleInputChange}
+                />
+                <input 
+                type='email'
+                placeholder='Confirmar Email'
+                id='confEmail'
+                name='confEmail'
+                required 
+                onChange={handleInputChange}
+                />
+                    {
+                        !confirmation && <span>Deben coincidir los emails</span>
+                    }
+                <input 
+                type='tel'
+                placeholder='Telefono de contacto'
+                name='phone'
+                required 
+                onChange={handleInputChange}
+                />
+                <input type='submit'/>
+            </fieldset>
+        </form>
     )
 }
 

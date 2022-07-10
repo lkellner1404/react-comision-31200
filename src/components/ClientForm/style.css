@@ -1,0 +1,14 @@
+.cart-form{
+    grid-area: form;
+}
+.cart-form>fieldset{
+    
+    display: flex;
+    flex-direction: column;
+}
+.cart-form input{
+    margin-top: .5em;
+}
+.cart-form span{
+    text-decoration: underline;
+}

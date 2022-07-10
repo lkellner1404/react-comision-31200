@@ -33,6 +33,6 @@ Instalar proyecto con npm
 
 - [ ] Agregar funcionalidad de resta de stock al momento de comprar.
 - [ ] Agregar funcionalidad donde no permita comprar si no hay stock.
-- [ ] Mejorar estilos
+- [x] Mejorar estilos
 
 

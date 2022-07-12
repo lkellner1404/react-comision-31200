@@ -2,13 +2,29 @@
     grid-area: form;
 }
 .cart-form>fieldset{
-    
     display: flex;
     flex-direction: column;
 }
 .cart-form input{
     margin-top: .5em;
 }
-.cart-form span{
+#incorrectEmail{
     text-decoration: underline;
+}
+#arrow{
+    display: inline-block;
+    margin-inline-start: 0.5em;
+    animation-name: showArrow;
+    animation-timing-function: linear;
+    animation-duration: 1000ms;
+    animation-iteration-count: 1;
+}
+
+@keyframes showArrow {
+    0%{
+        transform: translateX(50px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
 }

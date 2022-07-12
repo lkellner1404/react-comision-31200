@@ -61,7 +61,14 @@ import './style.css'
                 .then(( { id } ) => setOrderId(id))
                 .finally(()=>clearCart())
         } else {
-            alert('Por favor controle los datos proporcionados.')
+            const show = document.querySelector('#incorrectEmail')
+            const arrow = document.createElement('span')
+            arrow.id = 'arrow'
+            arrow.innerHTML = '<i class="fa-solid fa-arrow-left-long"></i>'
+            show.appendChild(arrow)
+            setTimeout(() => {
+                show.removeChild(arrow)
+            }, 3000);
         }
     }
     

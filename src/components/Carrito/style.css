@@ -34,6 +34,10 @@
 .cart-list button{
     padding: 0.4em 1em;
 }
+.cart-list>button{
+    display: block;
+    margin: 0 auto;
+}
 .cart-total{
     grid-area: total;
     text-align: center;

@@ -36,7 +36,7 @@ const ClientForm = ({ buy, handleInputChange, setConfirmation, confirmation }) =
                 onChange={handleInputChange}
                 />
                     {
-                        !confirmation && <span>Deben coincidir los emails</span>
+                        !confirmation && <span id='incorrectEmail'>Deben coincidir los emails</span>
                     }
                 <input 
                 type='tel'

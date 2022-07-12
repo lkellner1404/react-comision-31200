@@ -1,7 +1,9 @@
 
-# React - Comision 31200
+# Au Chocolat
 
-Proyecto realizado por Leonardo Kellner para la comisión 31200 de React, dictada por Federico Osandon y la tutoría de Javier Gimenez.
+Proyecto realizado por Leonardo Kellner.
+
+Este proyecto fue creado durante la cursada de la comisión 31200 de React, dictada por Federico Osandón y la tutoría de Javier Gimenez, y en él se aplican los conocimientos adquiridos durante el transcurso de la misma.
 
 ## Dependencias Externas
 
